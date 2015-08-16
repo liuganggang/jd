@@ -30,6 +30,12 @@ set :rails_env, :production
 # role :db,  %w{deploy@example.com}
 
 
+# after :finishing, :hello
+after 'bundler:install', 'greeting:hello'
+
+namespace :deploy do
+  after :finishing, :tmp_restart
+end
 
 # Configuration
 # =============

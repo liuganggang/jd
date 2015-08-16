@@ -51,4 +51,13 @@ namespace :deploy do
     end
   end
 
+  desc 'touch tmp/restart.txt'
+  task :tmp_restart do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      within release_path do
+        execute("cd #{release_path} && touch tmp/restart.txt")
+      end
+    end
+  end
+
 end
