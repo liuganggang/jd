@@ -1,0 +1,14 @@
+development: &development
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  reconnect: false
+  database: jd
+  pool: 5
+  username: root
+  password:
+
+production:
+  <<: *development
+test:
+  <<: *development
